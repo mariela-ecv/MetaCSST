@@ -106,7 +106,7 @@ int split(char *file,int number,char *dir){ //split the file to n(thread number)
 
 
 char *complementary(char *s){ //get the complementary sequence of the given DNA
-  char *p = (char *)calloc(strlen(s),sizeof(char));
+  char *p = (char *)calloc(strlen(s)+1,sizeof(char));
   int i,j;
   for(i=0,j=strlen(s)-1;j>=0;j--)
     switch(s[j]){
@@ -120,6 +120,7 @@ char *complementary(char *s){ //get the complementary sequence of the given DNA
     case 'g':p[i++]='C';break;
     case 'N':p[i++]=s[j];
     }
+  p[strlen(s)] = '\0';                      
   return p;
 }
 
